@@ -40,6 +40,9 @@ public class KbcPage extends BasePageObject<KbcPage> implements KbcModel {
     @FindBy(xpath = "//option[@innertext='6 months']")
     private WebElement itemDD2Months;
 
+    @FindBy(css = "[data-content='01'] .button--primary")
+    private WebElement calculateButton;
+
     //GETTERS
     @Override
     public WebElement getCookiesBtn() {
@@ -76,6 +79,11 @@ public class KbcPage extends BasePageObject<KbcPage> implements KbcModel {
         return itemDD2Months;
     }
 
+    @Override
+    public WebElement getCalculateBtn() {
+        return calculateButton;
+    }
+
     //PAGE INTERACTIONS
     public void clickCookies() {
         gens.waitForElement(getCookiesBtn(), defaultTimeout);
@@ -89,7 +97,8 @@ public class KbcPage extends BasePageObject<KbcPage> implements KbcModel {
         System.out.println("Selecting radio button for: How much should I be saving to reach my savings goal?");
     }
 
-    public void populateSavingsAmount(String amount) {
+    public void populateSavingsAmount() {
+        String amount = gens.generateRandomNumber(4);
         gens.waitForElement(getSavingAmountInput(), defaultTimeout);
         gens.type(amount, getSavingAmountInput());
         System.out.println("Entering Savings Amount");
@@ -101,20 +110,27 @@ public class KbcPage extends BasePageObject<KbcPage> implements KbcModel {
         System.out.println("Opening DD menu");
     }
 
-    public ArrayList<String> getListOfItems() {
+    public void getListOfItems() {
         Select select = new Select(getSelectDD());
         List<WebElement> options = select.getOptions();
         ArrayList<String> months = new ArrayList<>();
         for (WebElement we : options)
             months.add(we.getText());
         System.out.println("Current list of DD options: " + months);
-        return months;
     }
 
-    public void pickRandomDDItem() {
-        int randomValue = (int) (Math.random() * (getListOfItems().toArray().length));
-        String item = getListOfItems().get(randomValue);
-//todo
+    public void pickDDItem() {
+        Select select = new Select(getSelectDD());
+        List<WebElement> options = select.getOptions();
+        String amount = gens.generateRandomNumber(1);
+        WebElement item = options.get(Integer.parseInt(amount));
+        gens.click(item);
+        System.out.println("Clicked item: " + item.getAttribute("value"));
+    }
 
+    public void clickCalculateBtn() {
+        gens.waitForElement(getCalculateBtn(), defaultTimeout);
+        gens.click(getCalculateBtn());
+        System.out.println("Clicking Calculate Button");
     }
 }

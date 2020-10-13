@@ -7,10 +7,12 @@ public class KbcTest extends BaseTest {
 
     @Test
     public void selectRadio(){
+        initKBC();
         kbc.selectRadioOne();
-        kbc.populateSavingsAmount("300");
+        kbc.populateSavingsAmount();
         kbc.selectDDMenu();
-//        kbc.selectDDItem();
-        kbc.pickRandomDDItem();
+        kbc.getListOfItems();
+        kbc.pickDDItem();
+        kbc.clickCalculateBtn();
     }
 }

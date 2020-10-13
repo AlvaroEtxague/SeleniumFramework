@@ -16,5 +16,7 @@ public interface KbcModel {
 
     WebElement getSelectDD();
 
-    WebElement getDDItem(); //
+    WebElement getDDItem();
+
+    WebElement getCalculateBtn();
 }

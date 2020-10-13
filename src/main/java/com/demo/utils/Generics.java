@@ -94,4 +94,14 @@ public class Generics extends BasePageObject<Generics> {
         return true;
     }
 
+    public String generateRandomNumber(int length) {
+        StringBuilder numberBuilder = new StringBuilder();
+        String characters = "123456789";
+        for (int i = 0; i < length; i++) {
+            int index = (int) (Math.random() * characters.length());
+            numberBuilder.append(characters.charAt(index));
+        }
+        return numberBuilder.toString();
+    }
+
 }
