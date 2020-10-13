@@ -310,5 +310,11 @@
             <artifactId>json</artifactId>
             <version>20200518</version>
         </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.0.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

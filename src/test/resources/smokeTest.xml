@@ -4,8 +4,6 @@
     <test name="Smoke" >
         <classes>
             <class name="com.demo.tests.LoginPageTest" />
-            <class name="com.demo.tests.KbcTest" />
-            <class name="com.demo.tests.SimplifyCommerceTest" />
         </classes>
     </test>
 </suite>
