@@ -84,7 +84,6 @@ public class Generics extends BasePageObject<Generics> {
         return sb.toString();
     }
 
-
     public boolean existsElement(WebElement element) {
         try {
             element.isDisplayed();
