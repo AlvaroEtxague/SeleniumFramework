@@ -20,13 +20,13 @@ public class LoginPage extends BasePageObject<LoginPage> implements LoginModel{
     @FindBy(css = "._1iWCF._27Bp2.jXmar")
     private WebElement subtitle;
 
-    @FindBy(css = "._34NOX ._1hkdt:nth-of-type(2) ._1WMnM")
+    @FindBy(css = "a[href='/t/architecture']")
     private WebElement architectureLink;
 
-    @FindBy(id = "SEARCH_FORM_INPUT_homepage-header")
+    @FindBy(css = "input[name='searchKeyword'][class='dNxMO _1_rwn']")
     private WebElement searchBar;
 
-    @FindBy(css = "._18QGm")
+    @FindBy(css = "._1xG4w._28mw2._3SiJv > button[title='Search Unsplash']")
     private WebElement searchBarBtn;
 
     //GETTERS
